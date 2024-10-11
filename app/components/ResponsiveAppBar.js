@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -14,15 +14,12 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-
 import { useRouter } from 'next/navigation'
 
-
-// const pages = ['Products', 'Categories']; // UNUSED
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export default function ResponsiveAppBar() {
-  const router = useRouter()
+  const router = useRouter();
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -48,15 +45,13 @@ export default function ResponsiveAppBar() {
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Button
-            key={1}
+            key="home"
             onClick={() => router.push('/')}
             sx={{ my: 2, color: 'white', display: 'block' }}
           >
             <Typography
               variant="h6"
               noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
@@ -67,7 +62,6 @@ export default function ResponsiveAppBar() {
                 textDecoration: 'none',
               }}
             >
-
               VMS
             </Typography>
           </Button>
@@ -99,38 +93,20 @@ export default function ResponsiveAppBar() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
-
-              <MenuItem key={1} onClick={() => router.push('/product')}>
-                <Typography sx={{ textAlign: 'center' }}>Products</Typography>
+              <MenuItem onClick={() => router.push('/product')}>
+                <Typography textAlign="center">Products</Typography>
               </MenuItem>
-              <MenuItem key={2} onClick={() => router.push('/category')}>
-                <Typography sx={{ textAlign: 'center' }}>Categories</Typography>
+              <MenuItem onClick={() => router.push('/category')}>
+                <Typography textAlign="center">Categories</Typography>
               </MenuItem>
-
+              <MenuItem onClick={() => router.push('/customers')}>
+                <Typography textAlign="center">Customer Management</Typography>
+              </MenuItem>
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Button
-              key={1}
               onClick={() => router.push('/product')}
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
@@ -138,23 +114,20 @@ export default function ResponsiveAppBar() {
             </Button>
 
             <Button
-              key={2}
               onClick={() => router.push('/category')}
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
               Categories
             </Button>
 
-            {/* {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))} */}
+            <Button
+              onClick={() => router.push('/customers')}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+              Customer Management
+            </Button>
           </Box>
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -179,13 +152,13 @@ export default function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
+                  <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
         </Toolbar>
       </Container>
-    </AppBar >
+    </AppBar>
   );
 }
